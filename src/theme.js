@@ -53,8 +53,8 @@ const theme = {
 
   typography: {
     bold: {
-      // We have a real Soehne font for this weight
-      fontWeight: 600,
+      // We have a real Roboto font for this weight
+      fontWeight: 700,
     },
   },
 
@@ -89,7 +89,7 @@ const theme = {
       },
 
       '& dt': {
-        fontWeight: 600,
+        fontWeight: 700,
       },
 
       '& dd': {

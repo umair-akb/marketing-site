@@ -1,26 +1,13 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
 import { Link } from 'gatsby';
-import classnames from 'classnames';
 
 export const LINE_HEIGHT = 2;
 
-const useStyles = createUseStyles((theme) => ({
-  h2: {
-    color: theme.palette.text.primary,
-    margin: 0,
-    padding: 0,
-    lineHeight: LINE_HEIGHT,
-  },
-
-  link: {
-    color: theme.palette.text.primary,
-    textDecoration: 'none',
-
-    '& a:visited': {
-      color: theme.palette.text.primary,
-      textDecoration: 'none',
-    },
+const useStyles = createUseStyles(() => ({
+  img: {
+    width: '150px',
+    marginTop: '-1em',
   },
 }));
 
@@ -29,7 +16,7 @@ const Logo = () => {
 
   return (
     <Link to="/" className={classes.link}>
-      <h2 className={classnames('typography-logo', classes.h2)}>Roadie</h2>
+      <img className={classes.img} src="logo/roadie-spot-mono.png" alt="Roadie" />
     </Link>
   );
 };

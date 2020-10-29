@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import theme from '../theme';
 
-const useStyles = createUseStyles((theme) => ({
+const useStyles = createUseStyles(() => ({
   root: {
     fontSize: '3.75rem',
     lineHeight: 1.25,
@@ -20,12 +20,15 @@ const useStyles = createUseStyles((theme) => ({
   },
 }));
 
-const DEFAULT_COLOR = theme.palette.text.primary;
+// TODO : rewrite theme colours to match logo
+// const DEFAULT_COLOR = theme.palette.text.primary;
+
+const DEFAULT_COLOR = '#00263f';
 
 const Headline = ({ children, className, color = DEFAULT_COLOR }) => {
   const classes = useStyles();
   return (
-    <h1 className={classnames(classes.root, className)} style={{ color }}>
+    <h1 className={classnames('typography-condensed', classes.root, className)} style={{ color }}>
       {children}
     </h1>
   );
