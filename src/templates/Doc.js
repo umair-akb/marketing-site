@@ -2,14 +2,12 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { createUseStyles } from 'react-jss';
 import { SEO, StickyFooter, ContentHeader, TextLink as Link } from 'components';
-
 import { Sidebar } from 'components/doc';
 
 const useStyles = createUseStyles((theme) => ({
   content: theme.preMadeStyles.content,
 
   article: {},
-
   main: {},
 
   articleFooter: {
@@ -20,8 +18,8 @@ const useStyles = createUseStyles((theme) => ({
 
   [`@media (min-width: ${theme.breakpoints.values.md}px)`]: {
     article: {
-      paddingTop: 32,
       paddingLeft: 32,
+      paddingTop: 32,
     },
 
     main: {

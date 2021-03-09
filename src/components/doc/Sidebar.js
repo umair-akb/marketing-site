@@ -1,7 +1,15 @@
 import React from 'react';
 import { createUseStyles } from 'react-jss';
+import Search, { SearchResult } from 'components/AlgoliaAutocomplete';
+import algoliasearch from 'algoliasearch/lite';
+import { getAlgoliaHits } from '@algolia/autocomplete-js';
 
 import SidebarItem from './SidebarItem';
+
+const searchClient = algoliasearch(
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH_KEY
+);
 
 const useStyles = createUseStyles((theme) => ({
   root: {},
@@ -10,6 +18,10 @@ const useStyles = createUseStyles((theme) => ({
 
   section: {
     marginBottom: 32,
+  },
+
+  title: {
+    marginBottom: 4,
   },
 
   ul: {
@@ -28,12 +40,37 @@ const useStyles = createUseStyles((theme) => ({
     },
 
     inner: {
-      paddingTop: 32,
+      paddingTop: 40,
       position: 'sticky',
       top: 0,
     },
   },
 }));
+
+const getSearchSources = ({ query }) => {
+  return [
+    {
+      sourceId: 'docs',
+      getItemUrl({ item }) {
+        return item.slug;
+      },
+      getItems() {
+        return getAlgoliaHits({
+          searchClient,
+          queries: [{
+            indexName: 'docs',
+            query,
+          }],
+        });
+      },
+      templates: {
+        item({ item }) {
+          return <SearchResult hit={item} />;
+        }
+      }
+    }
+  ];
+};
 
 const DocSidebar = ({ location }) => {
   const classes = useStyles();
@@ -42,7 +79,13 @@ const DocSidebar = ({ location }) => {
     <aside className={classes.root}>
       <div className={classes.inner}>
         <div className={classes.section}>
-          <strong>Documentation</strong>
+          <div className={classes.title}>
+            <strong>Documentation</strong>
+          </div>
+          <Search
+            placeholder="Search"
+            getSources={getSearchSources}
+          />
         </div>
 
         <div className={classes.section}>
