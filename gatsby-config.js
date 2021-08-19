@@ -145,5 +145,14 @@ module.exports = {
         environment: getSentryEnvironment(),
       },
     },
+
+    {
+      resolve: `gatsby-plugin-google-remarketing`,
+      options: {
+        google_conversion_id: '630006799',
+        google_remarketing_only: "IS_REMARKETING_ONLY",
+        head: false,
+      },
+    },
   ],
 };
