@@ -7706,6 +7706,13 @@ gatsby-plugin-google-tagmanager@^3.6.0:
   dependencies:
     "@babel/runtime" "^7.14.0"
 
+gatsby-plugin-hotjar@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-hotjar/-/gatsby-plugin-hotjar-1.1.1.tgz#b910209c80fb2a0df9e0dc1b52de7270d9831b31"
+  integrity sha512-zEuZuZPokvBZvfKg7W0MjPoydFnD8NqhgB0Rm32A7HTWu44vvH+UYt0NsvnyINYmICS9ftv+y/k3WAAzkAIUNw==
+  dependencies:
+    babel-runtime "^6.26.0"
+
 gatsby-plugin-image@^1.6.0:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.7.1.tgz#07d8f14b9c37b294a38d4151dbf80e21cfaabaff"

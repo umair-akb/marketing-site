@@ -175,5 +175,14 @@ module.exports = {
         environment: getSentryEnvironment(),
       },
     },
+
+    {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        includeInDevelopment: false,
+        id: 2681972,
+        sv: 6,
+      },
+    },
   ],
 };
